@@ -1,0 +1,42 @@
+#AppContainer{
+  background-color:#f4f6f8;
+  width:100vw;
+  height:100vh;
+  display:grid;
+  grid-template-columns: auto;
+  grid-template-rows: 60px auto;
+}
+
+/* #AppContainer > div{
+  justify-self: center;
+  align-self:center;
+} */
+
+.side-bar{
+  background-color:#ffffff;
+  grid-column-start:1;
+  grid-row-start:2;
+  box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+}
+
+.header{
+  background-color:#1976d2;
+  grid-column-start:1;
+  grid-column-end:-1;
+  grid-row-start:1;
+  box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+  display:grid;
+  grid-template-columns:100px auto 40px;
+}
+
+.logo{
+  grid-column-start:2;
+  font-size:30pt;
+  align-self:center;
+  /* font-family:'Noto Sans',sans-serif; */
+  font-family:'Lobster',cursive;
+  /* letter-spacing: 5px; */
+  color:white;
+}
+
+
