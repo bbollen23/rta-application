@@ -1,0 +1,261 @@
+#grade{
+  display:grid;
+  grid-template-columns: 20vw 20vw 20vw 20vw;
+  column-gap: 20px;
+  row-gap: 20px;
+  // grid-template-rows: calc(50vh - 90px) calc(50vh - 90px) calc(50vh - 90px);
+  margin-left:20px;
+  margin-bottom:30px;
+}
+
+//-------------------------------------------------------------------
+//---------------------------Students Table--------------------------
+
+#grade .card.student-table-container{
+  display:flex;
+  flex-direction:column;
+  padding:0;
+  // grid-row-start:4;
+  // grid-column:auto / span 2;
+  grid-column:auto / span 4;
+
+  @include respond-to(x-large){
+    grid-column:auto / span 4;
+  }
+
+  @include respond-to(xx-large){
+    grid-column:auto / span 2;
+  }
+
+
+
+}
+
+
+#grade .card.student-table-container .table-container-root{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  width:100%;
+}
+
+#grade .card.student-table-container .table-container{
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0px;
+}
+
+#grade .card.student-table-container .table-cell-root.MuiTableCell-root{
+  font-size: 1.0rem;
+  line-height:21px;
+  border-bottom: 1px solid #eeeeee;
+  letter-spacing: -0.05px;
+  padding: 8px 25px;
+
+  
+}
+
+#grade .card.student-table-container .table-header-root{
+  font-size:1.1rem;
+  color:#263238;
+  letter-spacing:-0.05px;
+  line-height:21px;
+  z-index:3;
+  padding:8px 25px;
+}
+
+
+
+//-------------------------------------------------------------------
+//----------------------Performance by Concept-----------------------
+
+#grade .card.performance-by-concept-container{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:0;
+  // grid-row-start:2;
+  // grid-column-start:2;
+  // grid-column-end:-3;
+  grid-column: auto / span 4;
+
+  @include respond-to(x-large){
+    grid-column:auto / span 4;
+  }
+
+  @include respond-to(xx-large){
+    grid-column:auto / span 3;
+  }
+
+  
+}
+
+#grade .card.performance-by-concept-container .tick text{
+  font-size:0.8rem;
+  font-family:'Roboto',sans-serif;
+}
+
+#grade .card.performance-by-concept-container .percentage-value{
+  fill:white;
+  font-size:1.0rem;
+  font-weight:400;
+}
+
+
+//-------------------------------------------------------------------
+//-------------------------Summary Statistics------------------------
+
+
+#grade .card.summary-stats{
+  // grid-row-start:2;
+  // grid-column-start:-2;
+  // display:grid;
+  display:none;
+  padding:0;
+  grid-template-rows:70px 200px auto;
+  grid-column: auto / span 1;
+
+  @include respond-to(x-large){
+    grid-column:auto / span 1;
+    display:none;
+  }
+
+  @include respond-to(xx-large){
+    grid-column:auto / span 1;
+    display:grid;
+  }
+}
+
+#grade .card.summary-stats .list-label-container{
+  flex:1;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+}
+
+#grade .card.summary-stats .list-label-container div{
+  max-width: calc(12vw - 30px);
+  font-size:0.9rem;
+
+  @include respond-to(x-large){
+    font-size:0.9rem;
+  }
+
+  @include respond-to(xx-large){
+    font-size:1.0rem;
+  }
+
+}
+
+#grade .card.summary-stats .MuiListItemIcon-root{
+  min-width:30px;
+}
+
+#grade .card.summary-stats .list-label-container div:first-child{
+  text-align:left;
+}
+
+#grade .card.summary-stats .precentage-circle-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#grade .card.summary-stats .stat-list-container{
+  padding:0px 8px;
+  margin-top:10px;
+  display:flex;
+  margin-bottom:20px;
+}
+
+#grade .card.summary-stats .stat-list-container ul{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  justify-content:space-between;
+}
+
+
+//-------------------------------------------------------------------
+//-------------------------Weakness Chart----------------------------
+
+#grade .card.weakness-chart-container{
+  padding:0;
+  grid-column:auto / span 4;
+
+  @include respond-to(x-large){
+    grid-column:auto / span 4;
+  }
+
+  @include respond-to(xx-large){
+    grid-column:auto / span 2;
+  }
+}
+
+#grade .card.weakness-chart-container .weakness-bar{
+  fill:crimson;
+  rx:15;
+  ry:15;
+
+  @include respond-to(x-large){
+    rx:15;
+    ry:15;  
+  }
+
+  @include respond-to(xx-large){
+    rx:8;
+    ry:8;
+  }
+
+  &--past{
+    @extend .weakness-bar;
+    fill:#e4acb7;
+  }
+}
+
+#grade .card.weakness-chart-container .tick text{
+  font-size:1.1em;
+
+  @include respond-to(x-large){
+    font-size:1.1em;
+  }
+
+  @include respond-to(xx-large){
+    font-size:0.9em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// #student-info-statistics{
+//   /* justify-content: center; */
+//   display:flex;
+//   flex:1;
+//   flex-direction:column;
+// }
+
+// #student-info-statistics .list-label-container{
+//   flex:1;
+//   display:flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items:center;
+// }
+
+
+// #student-info-statistics .list-label-container div:last-child{
+//   font-weight:500;
+// }
+// #student-info-statistics .list-label-container div{
+//   text-align:left;
+// }

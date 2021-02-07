@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import * as d3 from 'd3';
 
+import useWindowDimensions from '../utility/windowDimensions';
+
 const LineChart = props => {
   
 
@@ -16,7 +18,16 @@ const LineChart = props => {
     {d:[2,2.5,2.5,2.6,2.2,2,2.3,2.6,3,3.1,3.1,3.3],color:""}
   ];
 
-  const _width = props.width, _height = props.height, svgId = "line-chart-" + props.id;
+  const [viewWidth, viewHeight] = useWindowDimensions();
+
+
+
+  // const _width = viewWidth*0.88-40-400;
+  let value = 0.88/6;
+  const _width = viewWidth >= 1920 ? value*4*viewWidth-40-50 : 0.88*viewWidth-40-50;
+  const _height = viewHeight*0.35, svgId = "line-chart-" + props.id;
+
+  
   const _margin = 25;
   const _innerWidth = _width - 2*_margin, _innerHeight = _height - 2*_margin
 

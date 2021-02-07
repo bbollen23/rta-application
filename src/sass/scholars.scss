@@ -1,0 +1,254 @@
+#scholar{
+  display:grid;
+  grid-column-gap:20px;
+  grid-row-gap:20px;
+  grid-template-columns:repeat(6,0.25fr);
+  // grid-template-rows: calc(70vh - 90px) calc(30vh - 90px);
+
+  padding:20px;
+}
+
+//-------------------------------------------------------------------
+//---------------------------Rardar Chart----------------------------
+
+
+#scholar .card.performance-by-concept-container-radar {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0;
+  grid-column: auto / span 6;
+
+  @include respond-to(x-large){
+    grid-column:auto / span 6;
+  }
+
+  @include respond-to(xx-large){
+    grid-column:auto / span 2;
+  }
+}
+
+#scholar .card.performance-by-concept-container-radar .radar-chart-container {
+  padding:20px;
+}
+
+#scholar .card.performance-by-concept-container-radar .radar-chart-container .slider-container {
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+}
+
+#scholar .card.performance-by-concept-container-radar .radar-chart-container .lock{
+  position:relative;
+  left:60px;
+  top:-5px;
+}
+
+#scholar .card.performance-by-concept-container-radar .label{
+
+  @include respond-to(x-large){
+    font-size:0.9em;
+  }
+
+  @include respond-to(xx-large){
+    font-size:0.75em;
+  }
+
+}
+//-------------------------------------------------------------------
+//---------------------------Line Chart------------------------------
+
+#scholar .card.performance-by-concept-container-line{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:0px;
+  grid-column: auto / span 6;
+
+  @include respond-to(x-large){
+    grid-column:auto / span 6;
+  }
+  
+  @include respond-to(xx-large){
+    grid-column:auto / span 4;
+  }
+}
+
+#scholar .card.performance-by-concept-container-line .line-chart-container{
+  display:flex;
+  flex:1;
+  width:calc(100% - 40px);
+  justify-content:flex-start;
+  align-items:center;
+  padding:20px;
+  flex-direction: column;
+}
+
+#scholar .card.performance-by-concept-container-line .line-chart-container .category-chips{
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  align-content:flex-start;
+  flex:1;
+  flex-wrap:wrap;
+}
+
+#scholar .card.performance-by-concept-container-line .line-chart-container .line-chart{
+  margin-bottom:20px;
+}
+
+
+//----------------------------------------------------------------------
+//-------------------Need to look this stuff over-----------------------
+
+.line {
+  fill: none;
+  /* stroke: #ffab00; */
+  /* stroke:#1976d2; */
+  
+  stroke-width: 3;
+}
+
+/* .tick line{
+  opacity: 0.2;
+  stroke-dasharray: 5 5; 
+} */
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+  stroke-dasharray: 5 5; 
+}
+
+.y-axis-none path,
+.x-axis-none path{
+  stroke:none;
+}
+.y-axis-none .tick line,
+.x-axis-none .tick line{
+  stroke:none;
+}
+
+.weakness-frequency .y-axis-none .tick text,
+.line-chart .y-axis-none .tick text{
+  transform:translate(-5px,0px)
+}
+
+.weakness-frequency .x-axis-none .tick text,
+.line-chart .x-axis-none .tick text{
+  transform:translate(0px,20px)
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.tick text{
+  font-size:10pt;
+}
+
+/* .dot{
+  fill:#1976d2
+} */
+
+.dot-outer{
+  fill:white;
+}
+
+
+
+
+//-------------------------------------------------------------------
+//------------------------Weakness Timeline--------------------------
+
+#scholar .card.weakness-timeline-container{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:0;
+  grid-column:auto / span 6;
+  // grid-row:2;
+
+  @include respond-to(x-large){
+    grid-column:auto / span 6;
+  }
+  
+  @include respond-to(xx-large){
+    grid-column:auto / span 3;
+  }
+
+
+}
+
+#scholar .card.weakness-timeline-container .weakness-timeline-inner-container{
+  display:flex;
+  flex:1;
+  justify-content: flex-start;
+  width:calc(100% - 40px);
+  padding:20px;
+}
+
+//-------------------------------------------------------------------
+//----------------------------Reports Table--------------------------
+
+#scholar .card.reports-table-container{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:0px;
+  grid-column:auto / span 6;
+  // grid-row:2;
+
+  @include respond-to(x-large){
+    grid-column:auto / span 6;
+  }
+  
+  @include respond-to(xx-large){
+    grid-column:auto / span 3;
+  }
+
+
+}
+
+#scholar .card.reports-table-container .reports-table-inner-container{
+  display:flex;
+  flex:1 1 300px;
+  width:100%;
+  justify-content: flex-start;
+  padding:0px;
+}
+
+#scholar .card.reports-table-container .reports-table-inner-container .reports-table-root{
+  width:100%;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+#scholar .card.reports-table-container .reports-table-inner-container .reports-table-root .table-container{
+  flex:1 1 0;
+}
+
+#scholar .card.reports-table-container .reports-table-inner-container .reports-table-root .table-container .table-header-root{
+  font-size:1.2em;
+  color:#263238;
+  padding:12px 32px;
+  letter-spacing:-0.05px;
+  line-height:21px;
+}
+
+#scholar .card.reports-table-container .reports-table-inner-container .reports-table-root .table-container .table-cell-root{
+  padding:12px 32px;
+  font-size:16px;
+  line-height:21px;
+  border-bottom:1px solid #eeeeee;
+  letter-spacing:-0.05px;
+}
+
+#scholar .card.reports-table-container .reports-table-inner-container .reports-table-root .table-container .table-cell-root .table-cell{
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  align-items:center;
+}

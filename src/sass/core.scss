@@ -1,0 +1,263 @@
+html{
+  font-size:$font-size;
+}
+
+
+#AppContainer{
+  background-color:$alt-color-offWhite;
+  max-width:100vw;
+  overflow-x:hidden;
+  min-height:100vh;
+  height:100%;
+  display:grid;
+  grid-template-columns: 12vw 88vw;
+  grid-template-rows: 60px auto;
+  font-size:$font-size; //Normalized at 10pt
+}
+
+
+.side-bar{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  /* align-items:center; */
+  background-color:#ffffff;
+  grid-column-start:1;
+  grid-row-start:2;
+  box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+}
+
+.side-bar .MuiListItemIcon-root{
+  min-width:$icon-min-width;
+}
+
+
+.side-bar .nested span{
+  margin-left:$icon-min-width;
+  font-weight:300;
+}
+
+
+//Best way to adjust the text component via css for this sidebar
+.side-bar .MuiListItemText-primary{
+  font-size:1.0em;
+  font-weight:500;
+}
+
+// .side-bar .nested.MuiListItem-root{
+//   width:auto;
+// }
+
+
+
+.side-bar .image-container{
+  align-self:center;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  margin-bottom:40px;
+}
+
+
+
+.side-bar .image-container img{
+  width: 150px;
+
+  @include respond-to(x-large){
+    width:150px;
+  }
+
+  @include respond-to(xx-large){
+    width:180px;
+  }
+
+}
+
+.header{
+  background-color:$color-blue;
+  // background-image:$color-blue;
+  grid-column-start:1;
+  grid-column-end:-1;
+  grid-row-start:1;
+  box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 5px 0 rgba(63,63,68,0.15);
+  display:grid;
+  grid-template-columns:100px auto auto;
+}
+
+.logo{
+  margin-left:40px;
+  font-size:2.0rem;
+  align-self:center;
+  font-family:'Lobster',cursive;
+  color:white;
+}
+
+.header-menu{
+  grid-column-start:3;
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right:40px;
+  justify-self: end;
+}
+
+.header-menu svg{
+  padding:0px 10px;
+}
+
+
+.change-campus-menu .MuiButton-root{
+  color:white;
+  background-color:rgb(82,147,212); //Don't necessarily know what color this is
+  text-transform:none;
+  font-size:1.1rem;
+  padding:3px 0px 3px 15px;
+  margin-right:20px;
+}
+
+.breadcrumb svg{
+  margin-right:5px;
+  width:22px;
+  height:22px;
+
+  @include respond-to(x-large){
+    width:22px;
+    height:22px;
+  }
+
+  @include respond-to(xx-large){
+    width:24px;
+    height:24px;
+  }
+
+
+}
+
+.breadcrumb a{
+  display:flex;
+  align-items:center;
+  font-size:1.1rem;
+  font-weight:500;
+  cursor: pointer;
+
+  @include respond-to(x-large){
+    font-size:1.1rem;
+  }
+
+  @include respond-to(xx-large){
+    font-size:1.2rem;
+  }
+}
+
+
+
+//------------------------------------------------------------
+//-------------------------CARD STYLES------------------------
+
+/*------------------------------------------------------*/
+
+.card{
+  box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+  background-color:white;
+  padding:20px;
+  /* width:calc(20vw - 120px); */
+  border-radius:10px;
+  /* margin:20px 20px 20px 0px; */
+}
+
+.card .title{
+  font-family:'Noto Sans',sans-serif;
+  font-weight:600;
+  font-size:1.2em;
+}
+
+.card .title-container{
+  border-bottom: 1px solid #f4f6f8;
+  width: calc(100% - 40px);
+  padding:15px 10px 15px 10px;
+}
+
+.card .title-container.small{
+  width:calc(100% - 20px);
+  padding:15px 10px 15px 10px;
+}
+
+.card .title.min{
+  font-weight:500;
+  /* background-color:#1976d2;
+  color:white; */
+  border-radius:10px;
+  padding:6px 12px;
+  display:inline-block;
+  color: #263238;
+  /* font-size: 16px; */
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.05px;
+  /* width:auto; */
+  /* max-width:250px; */
+  /* display: flex; */
+  /* flex-direction:row; */
+  /* justify-content: center; */
+}
+
+.card .title.blue{
+  background-color: #1976d2;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+
+.card.grid-1{
+  display:grid;
+  grid-row-start:2;
+  grid-column-start:2;
+  grid-column-end:-2;
+  grid-template-rows:80px auto;
+  grid-template-columns: auto auto auto auto;
+  padding:0px 0px;
+}
+
+.card.grid-1 .main-title{
+  font-family:'Roboto',sans-serif;
+  font-size:1.4em;
+  grid-column-start:1;
+  grid-column-end:-1;
+  padding:20px;
+  align-self:center;
+  border-bottom:1px solid #f4f6f8;
+}
+
+.card.grid-1 .section{
+  padding:20px 30px;
+  margin:20px 0;
+  border-right:2px solid #f4f6f8;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.card.grid-1 .section:last-child{
+  border-right:none;
+}
+
+
+.header-card{
+  box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+  background-color:white;
+  padding:20px;
+  /* width:calc(20vw - 120px); */
+  border-radius:10px;
+  margin:20px;
+  grid-column-start:1;
+  grid-column-end:-1;
+}
+
+.header-card .title{
+  font-family:'Noto Sans',sans-serif;
+  font-weight:600;
+  font-size:1.3em;
+}

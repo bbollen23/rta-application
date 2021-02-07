@@ -11,10 +11,11 @@ const StackedBarChart = props => {
 
   const [viewWidth, viewHeight] = useWindowDimensions();
   const height = 0.35*viewHeight;
-  const width = 0.55*viewWidth;
-  const innerHeight = height*0.85;
-  const innerWidth = width*0.8;
+  const width = viewWidth >= 1920 ? 0.66*viewWidth-40-100 : 0.88*viewWidth-40-100;
+   //0.88 comes from the grade page's view width that it takes up. 40 is from the two left paddings of 20px each, and the extra 100 is space taken from te right.
 
+  const innerWidth = width*0.8;
+  const innerHeight = height*0.85;
 
   const [data, setData] = useState([{'concept':'Multiplying 3-Digit Numbers','0':20,'1':15,'2':18,'3':27,'4':20},
   {'concept':'Unknown Numbers in Multiplication','0':10,'1':21,'2':16,'3':10,'4':43},
@@ -35,8 +36,6 @@ const StackedBarChart = props => {
     
     var series = stack(data,d=>d.concept)
 
-    console.log(series);
-
     var color = d3.scaleOrdinal(d3.schemeBlues[6])
     .domain(series.map(s => s.key)); 
 
@@ -52,9 +51,17 @@ const StackedBarChart = props => {
 
     var _groups = _svg.selectAll('.group').data(series);
 
-    var _bars = _groups.enter().append('g').attr('class','group').attr('fill',(d,i)=>{return color(i+1)}).selectAll('.rect').data(d=>d);
+    var _bars = _groups.enter()
+      .append('g')
+      .attr('class','group')
+      .attr('fill',(d,i)=>{return color(i+1)})
+      .selectAll('.rect').data(d=>d);
 
-    var _percentages = _groups.enter().append('g').attr('class','group').selectAll('.percent-text').data(d=>d);
+    var _percentages = _groups.enter()
+      .append('g')
+      .attr('class','group')
+      .selectAll('.percent-text')
+      .data(d=>d);
 
 
     function getRandomInt(max) {
@@ -77,11 +84,9 @@ const StackedBarChart = props => {
 
     _percentages.enter().append("text")
       .attr('x',200)
-      .attr('y',(d,i)=>_yScale(_concepts[i])+52)
+      .attr('y',(d,i)=>_yScale(_concepts[i])+48)
+      .attr('class','percentage-value')
       .attr('height',_yScale.bandwidth())
-      .attr('fill','white')
-      .attr('font-size',"1.1em")
-      .attr('font-weight',"400")
     .transition()
       .duration((d,i)=>{return _randomArray[i%9]})
       .attr('x',d=>_xScale(d[1])+155)
@@ -92,8 +97,6 @@ const StackedBarChart = props => {
       })
 
     _svg.append('g')
-      .style('font-size','11pt')
-      .style('font-family'," 'Roboto', sans-serif")
       .attr('class','y-axis')
       .attr('transform','translate(200,30)' )
       .call(d3.axisLeft(_yScale))

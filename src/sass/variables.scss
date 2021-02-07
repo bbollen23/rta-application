@@ -1,0 +1,104 @@
+//---------------Variables---------------------------
+
+$brand-color:#2a5b84;
+$brand-font: 'Lobster',cursive;
+$main-font:'Lato',sans-serif;
+$main-color:black;
+$alternate-color:white;
+
+// $header-font:'Montserrat', sans-serif;
+$header-font:'Oswald',sans-serif;
+$header-color:#2a5b84;
+$header-weight:500;
+
+$btn-font:'Montserrat', sans-serif;
+$btn-color:#AAAAAA;
+
+
+
+$color-teal: #10E7DC;
+$color-teal-opaque: rgba(16, 231, 220,0.5);
+$color-mid-blue-teal-gradient: linear-gradient(to right, rgba(16, 231, 220,1) , rgba(27, 156, 229,1));
+// $color-mid-blue-teal-gradient:linear-gradient(to right, rgba(16, 231, 220,1) , rgba(27, 156, 229,1));
+$color-blue: #0074E1;
+$color-mid-blue:#1B9CE5;
+$color-mid-blue-light:#1ea9fa;
+$color-light-blue:#6CDAEE;
+$color-orange:#F79E02;
+$color-orange-light:#f7ae31;
+$color-black: #36454e;
+$color-offWhite: #F6F9F9;
+$color-grey: #7c8a96;
+
+
+
+$a-brand-color:white;
+
+
+$slogan-font:'Oswald',sans-serif;
+$slogan-style:uppercase;
+
+
+
+/*---------------------------------------------------------*/
+/*------------------------New Variables--------------------*/
+
+$font-size: 10pt;
+
+$alt-color-offWhite:#f4f6f8;
+$alt-color-black:#263238;
+$alt-color-blue:#1976d2;
+
+$alt-font-family:'Roboto',sans-serif;
+$alt-font-weight-heavy:500;
+$alt-font-weight:400;
+
+$welcome-header-font-family:'Roboto',sans-serif;
+$welcome-header-font-weight:500;
+$welcome-header-sub-font-weight:400;
+$welcome-header-font-size:1.3rem;
+$welcome-header-letter-spacing:-0.06px;
+$welcome-header-line-height:1.235;
+
+
+$app-container-main-width:88vw;
+
+
+
+//---------------------------------------------------------------------
+//--------------------------Side Navigation----------------------------
+
+$icon-min-width:35px;
+
+
+
+//---------------------------------------------------
+
+//--------------------------Mobile Breakpoints---------------------------
+
+
+$breakpoints: (
+  'x-small':      ( min-width:  320px ),
+  'small'  :      ( min-width:  767px ),
+  'medium' :      ( min-width:  992px ),
+  'large'  :      ( min-width: 1200px ),
+  'x-large':      ( min-width: 1440px ),
+  'xx-large' :    ( min-width: 1920px ),
+  'xxx-large':    ( min-width: 2560px )
+);
+ 
+@mixin respond-to($name) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $name) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}

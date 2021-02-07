@@ -7,6 +7,7 @@ import SchoolIcon from '@material-ui/icons/School';
 import BuildIcon from '@material-ui/icons/Build';
 import MoodIcon from '@material-ui/icons/Mood';
 import Slide from '@material-ui/core/Slide';
+import '../css/app.css';
 
 const useStyles = makeStyles(theme => ({
   // root: {
@@ -76,66 +77,66 @@ const StatsBadge = props => {
 
   if(props.icon === 1){
     return(
-      <Slide direction={"down"} in={slide[3]} mountOnEnter>
-        <Paper style={{display:'flex',flexDirection:'row',padding:'24px',margin:'20px',justifyContent:'space-between',alignItems:'center'}}>
+      //<Slide direction={"down"} in={slide[3]} mountOnEnter>
+        <Paper className="stats-badge">
           <div>
-            <div style={{textTransform:'uppercase',color:'rgb(115,115,115)',marginBottom:'5px'}}>This week's absences</div>
-            <div style={{display:"flex",justifyContent:'center',alignItems:'center'}}>
-              <div style={{fontSize:'1.5em',fontWeight:500}}>5 New Absences</div>
-              <div style={{position:"relative",left:"10px",top:"2px",border:"1px solid grey",borderRadius:"5px",color:'grey',fontSize:"0.9em",padding:"1px 12px 2px 12px"}}>&#xb1;0</div>
+            <div className="title">This week's absences</div>
+            <div className="container">
+              <div className="content">5 New Absences</div>
+              <div className="change-indicator">&#xb1;0</div>
             </div>
           </div>
-          <BadgeAvatar color={"orange"}><ScheduleIcon fontSize={"large"}/></BadgeAvatar>
+          {/* <BadgeAvatar color={"orange"}><ScheduleIcon fontSize={"large"}/></BadgeAvatar> */}
         </Paper>
-      </Slide>
+      //</Slide>
     )  
   } else if(props.icon === 2){
     return(
-      <Slide direction={"down"} in={slide[0]}mountOnEnter >
+      // <Slide direction={"down"} in={slide[0]}mountOnEnter >
 
-      <Paper style={{display:'flex',flexDirection:'row',padding:'24px',margin:'20px',justifyContent:'space-between',alignItems:'center'}}>
+      <Paper className="stats-badge" >
         <div>
-          <div style={{textTransform:'uppercase',color:'rgb(115,115,115)',marginBottom:'5px'}}>New Mastery Students</div>
-          <div style={{display:"flex",justifyContent:'center',alignItems:'center'}}>
-            <div style={{fontSize:'1.5em',fontWeight:500}}>8 New Students</div>
-            <div style={{position:"relative",left:"10px",top:"2px",border:"1px solid green",borderRadius:"5px",color:'green',fontSize:"0.9em",padding:"1px 12px 2px 12px"}}> + 3</div>
+          <div className="title">New Mastery Students</div>
+          <div className="container">
+            <div className="content">8 New Students</div>
+            <div className="change-indicator"> + 3</div>
           </div>
         </div>
-        <BadgeAvatar color={"green"} ><SchoolIcon fontSize={"large"}/></BadgeAvatar>
+        {/* <BadgeAvatar color={"green"} ><SchoolIcon fontSize={"large"}/></BadgeAvatar> */}
       </Paper>
-      </Slide>
+      //</Slide>
     )  
   }  else if(props.icon === 3){
     return(
-      <Slide direction={"down"} in={slide[1]}mountOnEnter >
+      // <Slide direction={"down"} in={slide[1]}mountOnEnter >
 
-      <Paper style={{display:'flex',flexDirection:'row',padding:'24px',margin:'20px',justifyContent:'space-between',alignItems:'center'}}>
+      <Paper className="stats-badge">
         <div>
-          <div style={{textTransform:'uppercase',color:'rgb(115,115,115)',marginBottom:'5px'}}>Number of Weaknesses Fixed</div>
-          <div style={{display:"flex",justifyContent:'center',alignItems:'center'}}>
-            <div style={{fontSize:'1.5em',fontWeight:500}}>7 Fixed Weaknesses</div>
-            <div style={{position:"relative",left:"10px",top:"2px",border:"1px solid red",borderRadius:"5px",color:'red',fontSize:"0.9em",padding:"1px 12px 2px 12px"}}> - 1</div>
+          <div className="title">Number of Weaknesses Fixed</div>
+          <div className="container">
+            <div className="content">7 Fixed Weaknesses</div>
+            <div className="change-indicator low"> - 1</div>
           </div>
         </div>
-        <BadgeAvatar props><BuildIcon fontSize={"large"}/></BadgeAvatar>
+        {/* <BadgeAvatar props><BuildIcon fontSize={"large"}/></BadgeAvatar> */}
       </Paper>
-      </Slide>
+      // {/* </Slide> */}
     )  
   } else if(props.icon === 4){
     return(
-      <Slide direction={"down"} in={slide[2]}mountOnEnter >
+      // <Slide direction={"down"} in={slide[2]}mountOnEnter >
 
-      <Paper style={{display:'flex',flexDirection:'row',padding:'24px',margin:'20px',justifyContent:'space-between',alignItems:'center'}}>
+      <Paper className="stats-badge">
         <div>
-          <div style={{textTransform:'uppercase',color:'rgb(115,115,115)',marginBottom:'5px'}}>Improved Students</div>
-          <div style={{display:"flex",justifyContent:'center',alignItems:'center'}}>
-            <div style={{fontSize:'1.5em',fontWeight:500}}>73 Improved Students</div>
-            <div style={{position:"relative",left:"10px",top:"2px",border:"1px solid green",borderRadius:"5px",color:'green',fontSize:"0.9em",padding:"1px 12px 2px 12px"}}> + 12</div>
+          <div className="title">Improved Students</div>
+          <div className="container">
+            <div className="content">73 Improved Students</div>
+            <div className="change-indicator"> + 12</div>
           </div>
         </div>
-        <BadgeAvatar color={"purple"}><MoodIcon fontSize={"large"}/></BadgeAvatar>
+        {/* <BadgeAvatar color={"purple"}><MoodIcon fontSize={"large"}/></BadgeAvatar> */}
       </Paper>
-      </Slide>
+      // </Slide>
     )  
   }
 

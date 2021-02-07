@@ -2,18 +2,31 @@ import React, {useState, useEffect} from 'react';
 import * as d3 from 'd3';
 import wrap from '../utility/wordWrap';
 
+import useWindowDimensions from '../utility/windowDimensions';
+
 const WeaknessTimeline = props => {
   const svgId = "weaknessTimeline-" + props.id;
-  const margin = {top: 20, right: 10, bottom: 20, left: 10};
+  const margin = {top: 20, right: 10, bottom: 20, left: 0};
 
-  const width = props.width - margin.left - margin.right;
-  const height = props.height - margin.top - margin.bottom;
+  let value = 0.88/6;
 
-  const chartMargin = {top:10,right:10,bottom:50,left:150} //The margin that tells us how far the actual axes and physical chart is moved from the boundary, to leave space fore labels and such
+  const [viewWidth, viewHeight] = useWindowDimensions();
+
+  const width = viewWidth >= 1920 ? value*3*viewWidth-40-80 : 0.88*viewWidth-40-80;
+  //0.88 refers to the width of the view which is 0.88 of the entire page, the 80 refers to 20 inner padding on each side (left and right), and 20 outter padding on each side.
+
+
+  const height = viewHeight*0.25 - margin.top - margin.bottom;
+
+  const chartMargin = {top:10,right:40,bottom:50,left:150} //The margin that tells us how far the actual axes and physical chart is moved from the boundary, to leave space fore labels and such
   const chartWidth = width - chartMargin.right - chartMargin.left;
   const chartHeight = height - chartMargin.top - chartMargin.bottom;
 
   const renderChart = () => {
+
+    //Need to consider that weaknesses can come back and with that we have multiple x1 and x2 values.
+
+
     var data = [{label:'Multiplication Tables',x1:4,x2:8},{label:'Adding Fractions',x1:1,x2:3},{label:'GCF',x1:2,x2:9},{label:'LCM',x1:1,x2:6},{label:'Remainders',x1:7,x2:12},{label:'Exponents',x1:6,x2:11}]
 
     var dotData = [];
@@ -44,7 +57,7 @@ const WeaknessTimeline = props => {
       .attr('transform','translate(' + (margin.left + chartMargin.left) + ',' +  (margin.top + chartMargin.top) +')')
       .call(d3.axisLeft(yScale))
     .selectAll(".tick text")
-      .call(wrap,150);;
+      .call(wrap,150);
 
 
     function make_x_gridlines() {		
@@ -119,7 +132,7 @@ const WeaknessTimeline = props => {
     renderChart();
   },[])
 
-  return(<svg id={svgId} width={props.width} height={props.height}></svg>)
+  return(<svg id={svgId} width={width} height={height}></svg>)
 }
 
 export default WeaknessTimeline;

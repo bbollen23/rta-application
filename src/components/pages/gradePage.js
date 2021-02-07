@@ -17,20 +17,9 @@ import StudentInfo from '../studentInfo';
 
 import MyTooltip from '../myTooltip';
 
+import { Link, useParams } from 'react-router-dom'
 
-const useStyles = makeStyles(theme => ({
-  listRow:{
-    display:'flex',
-    flexDirection:'row',
-    justifyContent:'space-between'
-  },
-  list:{
-    display:'flex',
-    flexDirection:'column',
-    flex:1,
-    justifyContent:'space-between'
-  }
-}));
+
 
 
 
@@ -38,26 +27,33 @@ const useStyles = makeStyles(theme => ({
 export default function GradePage(props){
   const [studentOpen, setStudentOpen] = useState(false);
 
-  const classes = useStyles();
+
+
 
   return(
     <div className="page-container" id="grade">
-      <Paper className="card" style={{gridRowStart:2,gridColumnStart:2,gridColumnEnd:-3,display:'flex',flexDirection:'column',alignItems:'flex-start',padding:0}}>
+
+
+      <Paper className="card performance-by-concept-container">
         <div className="title-container">
           <div className="title min">Performance by Concept</div>
         </div>
         <StackedBarChart id={1}/>
       </Paper>
-      <Paper className="card summary-stats" style={{gridRowStart:2,gridColumnStart:-2,display:'grid',gridTemplateRows:'70px 280px auto',padding:0}}>
+
+
+      <Paper className="card summary-stats">
         <div className="title-container small">
           <div className="title min">Statistics Summary</div>
         </div>
-        <div style={{alignSelf:'center',justifySelf:'center'}}>
-          <PercentageCircle id={1} size={225} percentage={0.72}/>
-        </div>
-        <div style={{padding:"0px 8px",marginTop:"10px",display:'flex',marginBottom:'20px'}}>
 
-          <List classes={{root:classes.list}}>
+        <div className="precentage-circle-container">
+          <PercentageCircle id={1} size={200} percentage={0.72}/>
+        </div>
+        
+        <div className="stat-list-container">
+
+          <List>
             <ListItem button key={1}>
               <ListItemIcon><PeopleIcon/></ListItemIcon>
               <div className="list-label-container" >
@@ -65,6 +61,7 @@ export default function GradePage(props){
                 <div>24</div>
               </div>
             </ListItem>
+
             <ListItem button key={2}>
               <ListItemIcon><SchoolIcon/></ListItemIcon>
               <div className="list-label-container" >
@@ -96,19 +93,30 @@ export default function GradePage(props){
             </ListItem>
           </List>
         </div>
+
       </Paper>
-      <Paper className="card" style={{display:'flex',flexDirection:'column',gridRowStart:4,gridColumnStart:6,gridColumnEnd:-1,padding:0}}>
-        <div className="title-container">
-          <div className="title min">Students</div>
-        </div>
-        <StudentsTable setView={props.setView} />
-      </Paper>
-      <Paper className="card" style={{gridRowStart:4,gridColumnStart:2,gridColumnEnd:5,padding:0}}>
+
+      <Paper className="card weakness-chart-container">
         <div className="title-container">
           <div className="title min">Frequency of Weaknesses</div>
         </div>
         <WeaknessChart id={1}/>
       </Paper>
+
+      <Paper className="card student-table-container">
+        <div className="title-container">
+          <div className="title min">Students</div>
+        </div>
+
+        <StudentsTable />
+
+      </Paper>
+
+
+
+
+
+
     </div>
   )
 }

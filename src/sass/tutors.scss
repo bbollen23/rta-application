@@ -1,0 +1,29 @@
+#tutors{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-rows: 50px auto;
+  grid-row-gap:20px;
+  /* padding:20px; */
+}
+
+// #tutors .welcome-header{
+//   font-weight: 500;
+//   color: $alt-color-black;
+//   /* line-height: 28px; */
+//   letter-spacing:$welcome-header-font-spacing;
+//   font-size: $welcome-header-font-size;
+//   font-family: $welcome-header-font-family;
+//   font-weight: $welcome-header-font-weight;
+//   line-height: $welcome-header-line-height;
+// }
+
+// #tutors .welcome-sub-header{
+//   font-weight: 500;
+//   color: $alt-color-black;
+//   /* line-height: 28px; */
+//   letter-spacing:$welcome-header-font-spacing;
+//   font-size: $welcome-header-font-size;
+//   font-family: $welcome-header-font-family;
+//   font-weight: $welcome-header-sub-font-weight;
+//   margin-top:10px;
+// }

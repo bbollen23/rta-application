@@ -11,6 +11,9 @@ import TableRow from '@material-ui/core/TableRow';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import Avatar from '@material-ui/core/Avatar'
 
+
+import { useHistory, useParams } from 'react-router-dom';
+
 const columns = [
   { id: 'name', label: 'Name', minWidth: 170 },
   {id: 'tutors', label: 'Tutors',align:'center'},
@@ -34,44 +37,19 @@ const rows = [
   // {name:'Jane Doe', tutors:[1,3],lastAttendance:"02/27/20", score:4.2, mastery:true},
 ];
 
-const useStyles = makeStyles({
-  root: {
-    width: '100%',
-    flex:1,
-    display:'flex',
-    flexDirection:'column'
-  },
-  container: {
-    flex:'1 1 0',
-  },
-  tableCellRoot:{
-    padding: "12px 32px",
-    fontSize: "16px",
-    // text-align: left;
-    // font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    // font-weight: 400;
-    lineHeight: "21px",
-    borderBottom: "1px solid #eeeeee",
-    letterSpacing: "-0.05px",
-    // vertical-align: inherit;
-  },
-  tableHeaderRoot:{
-    fontSize:'1.2em',
-    color: "#263238",
-    padding: "12px 32px",
-    letterSpacing: "-0.05px",
-    lineHeight: "21px",
-    zIndex:3
-  }
-});
+
 
 export default function StudentsTable(props) {
-  const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
+  const history = useHistory();
+
+  const { level } = useParams();
+
   const handleStudentOpen = () => {
-    props.setView("scholar");
+    // props.setView("scholar");
+    history.push(`/grade/${level}/scholar/bob`);
   }
 
   const handleChangePage = (event, newPage) => {
@@ -84,8 +62,8 @@ export default function StudentsTable(props) {
   };
 
   return (
-    <Paper className={classes.root}>
-      <TableContainer className={classes.container}>
+    <Paper className="table-container-root">
+      <TableContainer className="table-container">
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -94,7 +72,7 @@ export default function StudentsTable(props) {
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
-                  classes={{root:classes.tableHeaderRoot}}
+                  className="table-header-root"
 
                 >
                   {column.label}
@@ -113,7 +91,7 @@ export default function StudentsTable(props) {
                       // value = value ? 'yes' : 'no'
                     } else if(column.id==="tutors"){
                       return(
-                        <TableCell>
+                        <TableCell className="table-cell-root"> 
                           <div style={{display:'flex',justifyContent:'center'}}>
                             <AvatarGroup>
 
@@ -125,7 +103,7 @@ export default function StudentsTable(props) {
                       )
                     }
                     return (
-                      <TableCell classes={{root:classes.tableCellRoot}} key={column.name} align={column.align}>
+                      <TableCell className="table-cell-root" key={column.name} align={column.align}>
                         {value}
                       </TableCell>
                     );

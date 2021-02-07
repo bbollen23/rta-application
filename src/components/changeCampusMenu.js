@@ -8,12 +8,12 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 
 const useStyles =  makeStyles({
   menu:{
-    color:'white',
-    backgroundColor:'rgb(82,147,212)',
-    textTransform:'none',
-    fontSize:'13pt',
-    padding:'5px 0px 5px 20px',
-    marginRight:'20px'
+    // color:'white',
+    // backgroundColor:'rgb(82,147,212)',
+    // textTransform:'none',
+    // fontSize:'13pt',
+    // padding:'5px 0px 5px 20px',
+    // marginRight:'20px'
   }
 })
 
@@ -35,7 +35,7 @@ export default function ChangeCampusMenu() {
   };
 
   return (
-    <div>
+    <div className="change-campus-menu">
       <Button aria-controls="simple-menu" classes={{root:classes.menu}} aria-haspopup="true" onClick={handleClick}>
         {campus}
         <ExpandMore />

@@ -49,7 +49,7 @@ const CategoryChips = props => {
 
 
   return(
-    <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignContent:'flex-start',flex:1,height:'500px', flexWrap:"wrap"}}>
+    <div className="category-chips">
       {Object.values(data).map(entry => {
 
 
@@ -80,7 +80,61 @@ export default function ScholarPage(){
 
   const colors = d3.schemeCategory10;
 
-  const [data,setData] = useState({0:{key:0,label:'Multiplying 3-Digit Numbers',toggle:true,color:colors[0]},1:{key:1,label:'Unknown Numbers in Multiplication',toggle:true,color:colors[1]},2:{key:2,label:'Multiplying Fractions',toggle:true,color:colors[2]},3:{key:3,label:'Reducing Fractions',toggle:true,color:colors[3]},4:{key:4,label:'Properties of Operations',toggle:true,color:colors[4]},5:{key:5,label:'Factors & Divisibility',toggle:true,color:colors[5]},6:{key:6,label:'Comparing and Separating WP',toggle:true,color:colors[6]},7:{key:7,label:'Multiplication & Division WP',toggle:true,color:colors[7]},8:{key:8,label:'Equal Groups WP',toggle:true,color:colors[8]}})
+  const [data,setData] = useState({
+    0:{
+        key:0,
+        label:'Multiplying 3-Digit Numbers',
+        toggle:true,
+        color:colors[0]
+      },
+    1:{
+        key:1,
+        label:'Unknown Numbers in Multiplication',
+        toggle:true,
+        color:colors[1]
+      },
+    2:{
+        key:2,
+        label:'Multiplying Fractions',
+        toggle:true,
+        color:colors[2]}
+        ,
+    3:{
+        key:3,
+        label:'Reducing Fractions',
+        toggle:true,
+        color:colors[3]
+      },
+    4:{
+        key:4,
+        label:'Properties of Operations',
+        toggle:true,
+        color:colors[4]
+      },
+    5:{
+        key:5,
+        label:'Factors & Divisibility',
+        toggle:true,
+        color:colors[5]
+      },
+    6:{
+        key:6,label:'Comparing and Separating WP',
+        toggle:true,
+        color:colors[6]
+      },
+    7:{
+        key:7,
+        label:'Multiplication & Division WP',
+        toggle:true,
+        color:colors[7]
+      },
+    8:{
+        key:8,
+        label:'Equal Groups WP',
+        toggle:true,
+        color:colors[8]
+      }
+  })
 
 
   const handleDaysChange = (event,newDays) => {
@@ -109,14 +163,16 @@ export default function ScholarPage(){
 
   return(
     <div className="page-container" id="scholar">
-      <Paper elevation={2} className="card" style={{display:'flex',flexDirection:'column',alignItems:'center',padding:0,gridColumn:"1 / span 2"}}>
+
+
+      <Paper elevation={2} className="card performance-by-concept-container-radar">
         <div className="title-container">
           <div className="title min">Performance by Concept</div>
         </div>
-        <div style={{padding:'20px'}}>
+        <div className="radar-chart-container">
           <RadarChart id={1} days={days} lock={lock}/>
 
-          <div style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
+          <div className="title-container slider-container">
             <MySlider
               value={days}
               onChange={handleDaysChange}
@@ -127,39 +183,43 @@ export default function ScholarPage(){
               min={1}
               max={12}
             />
-            <Fab size="small" style={{position:'relative',left:'60px',top:"-5px"}} color="secondary" aria-label="add" onClick={handleLockChange}>
+            <Fab size="small" className="lock" color="secondary" aria-label="add" onClick={handleLockChange}>
               {lock ? <LockTwoToneIcon/> : <LockOpenTwoToneIcon/>}
             </Fab>
           </div>
         </div>
       </Paper>
 
-      <Paper className="card" style={{display:'flex',flexDirection:'column',alignItems:'flex-start',padding:0,gridColumn:"3 / span 4"}}>
+
+
+
+      <Paper className="card performance-by-concept-container-line">
         <div className="title-container">
           <div className="title min">Performance by Concept</div>
         </div>
-        <div style={{padding:'20px',flex:1,display:'flex',width:"calc(100% - 40px)",justifyContent:'flex-start',alignItems:"center"}}>
-          <LineChart id={1} categories={data} height={500} width={850}/>
+
+        <div className="line-chart-container">
+          <LineChart id={1} categories={data} height={500} width={950}/>
           <CategoryChips data={data} handleToggle={handleToggle}/>
         </div>
       </Paper>
 
 
-      <Paper className="card" style={{display:'flex',flexDirection:'column',alignItems:'flex-start',padding:0,gridColumn:"1 / span 3", gridRow:"2"}}>
+      <Paper className="card weakness-timeline-container">
         <div className="title-container">
           <div className="title min">Weakness Timeline</div>
         </div>
-        <div style={{padding:'20px',flex:1,display:'flex',width:"calc(100% - 40px)",justifyContent:'flex-start'}}>
+        <div className="weakness-timeline-inner-container">
           <WeaknessTimeline width={900} id={1} height={250}/>
         </div>
       </Paper>
     
-      <Paper className="card" style={{display:'flex',flexDirection:'column',alignItems:'flex-start',padding:0,gridColumn:"4 / span 3", gridRow:"2"}}>
+      <Paper className="card reports-table-container">
         <div className="title-container">
           {/* <Typography variant="h5" component="h2">Frequency of Weaknesses</Typography> */}
           <div className="title min">Daily Reports</div>
         </div>
-        <div style={{padding:'0px',flex:1,display:'flex',width:"100%",justifyContent:'flex-start'}}>
+        <div className="reports-table-inner-container">
           {/* <WeaknessTimeline width={900} height={250}/> */}
           <ReportTable setReportOpen={handleSetReportOpen}/>
           <DailyReport open={reportOpen} handleClose={()=>handleSetReportOpen(false)}/>

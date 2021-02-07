@@ -9,11 +9,12 @@ export default function RadarChart(props){
   const svgId = "radarChart-" + props.id, radarRange = [0,1,2,3,4,5]
 
   const [viewWidth, viewHeight] = useWindowDimensions();
-  const height = 500;
-  const width = 500;
+  // const height = 400;
+
+  let value = 0.88/6;
+  const width = viewWidth*value*2-150; //1/3 of the available 0.88 space
   const radius = (width - 170)/10; //Words are wrappe to fit into 80 pixels --> two sets means 160,added 10 for buffer zone
-  const innerHeight = height*0.85;
-  const innerWidth = width*0.8;
+  const height = viewHeight*value*2+50;
 
   // const radarCategories = ['Operations of Arithmetic', 'Addition of Mixed Numbers', 'Sovling Equations by Inspection', 'Subtraction of Fractions', 'Long Division','Evaluating Equations', 'Comparing and Ordering Integers', 'Fractional Parts WP', 'Multiplication & Division WP'];
 
