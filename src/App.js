@@ -13,7 +13,7 @@ import ScholarPage from './components/pages/scholarPage';
 import IconBreadcrumbs from './components/breadCrumb';
 
 
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 import Loading from './components/loading';
 
 
@@ -26,56 +26,53 @@ function App() {
   const [view, setView] = useState("login")
   const [userMetadata,setUserMetadata] = useState(null);
 
-  const {user, isAuthenticated, isLoading, loginWithRedirect, getAccessTokenWithPopup} = useAuth0();
+  // Old RTA authentication
+
+  // const {user, isAuthenticated, isLoading, loginWithRedirect, getAccessTokenWithPopup} = useAuth0();
 
 
+  // if(isLoading){
+  //   return(
+  //     <div style={{width:"100%",height:"100vh",display:'flex',justifyContent:'center',alignItems:'center'}}>
+  //       <Loading/>
+  //     </div>
+  //   )
+  // }
+
+  // if(isAuthenticated){
 
 
-
-
-
-  if(isLoading){
-    return(
-      <div style={{width:"100%",height:"100vh",display:'flex',justifyContent:'center',alignItems:'center'}}>
-        <Loading/>
-      </div>
-    )
-  }
-
-  if(isAuthenticated){
-
-
-    if(!userMetadata){
+  //   if(!userMetadata){
       
       //If no user meta data has been found yet, get the meta data. We want to make sure that the user is fully authenticated before actually trying to call this function. 
 
-      const getUserMetadata = async () => {
-        const domain = "tutoryard.auth0.com";
+      // const getUserMetadata = async () => {
+      //   const domain = "tutoryard.auth0.com";
     
-        try {
-          const accessToken = await getAccessTokenWithPopup({
-            audience: `https://${domain}/api/v2/`,
-            scope: "read:current_user",
-          });
-          console.log(user);
-          const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
+      //   try {
+      //     const accessToken = await getAccessTokenWithPopup({
+      //       audience: `https://${domain}/api/v2/`,
+      //       scope: "read:current_user",
+      //     });
+      //     console.log(user);
+      //     const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
     
-          const metadataResponse = await fetch(userDetailsByIdUrl, {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          });
+      //     const metadataResponse = await fetch(userDetailsByIdUrl, {
+      //       headers: {
+      //         Authorization: `Bearer ${accessToken}`,
+      //       },
+      //     });
     
-          const { app_metadata } = await metadataResponse.json();
+      //     const { app_metadata } = await metadataResponse.json();
     
-          setUserMetadata(app_metadata);
-          console.log(app_metadata);
-        } catch (e) {
-          console.log(e.message);
-        }
-      };
-      getUserMetadata();
-    }
+      //     setUserMetadata(app_metadata);
+      //     console.log(app_metadata);
+      //   } catch (e) {
+      //     console.log(e.message);
+      //   }
+      // };
+      // getUserMetadata();
+    // }
 
 
 
@@ -126,9 +123,9 @@ function App() {
           </div>
         </div>
     )
-  } else {
-      loginWithRedirect();
-  }
+  // } else {
+  //     loginWithRedirect();
+  // }
 }
 
 export default App;

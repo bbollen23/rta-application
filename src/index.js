@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
-import { Auth0Provider } from "@auth0/auth0-react";
+// import { Auth0Provider } from "@auth0/auth0-react";
 
 import configureStore from '../src/store/configureStore';
 
@@ -40,13 +40,13 @@ const store = configureStore();
 ReactDOM.render(
   <HashRouter>
     <Provider store={store}>
-      <Auth0Provider
+      {/* <Auth0Provider
         domain="tutoryard.auth0.com"
         clientId="aj10yiMucHZzPCK4m9KA8U3f0Y6rJWX4"
         redirectUri={window.location.origin}
-      >
+      > */}
         <App/>
-      </Auth0Provider>
+      {/* </Auth0Provider> */}
     </Provider>
   </HashRouter>,
   document.getElementById("root")
