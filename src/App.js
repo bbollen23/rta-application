@@ -83,7 +83,6 @@ function App() {
           <div className="side-bar">
             <Navbar setView={setView}/>
             <div className="image-container">
-              <img  h src="/Logo-Leman-Academy-web-1.png"/>
             </div>
           </div>
           <div className="header">

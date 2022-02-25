@@ -25,7 +25,7 @@ export default function Home(props){
       <div id="home" className="page-container">
 
         <div className="welcome-header-container">
-          <div className="welcome-header">Welcome Back, Katie!</div>
+          <div className="welcome-header">Welcome Back!</div>
           <div className="welcome-sub-header">Here's how the scholars are doing this week.</div>
         </div>
 

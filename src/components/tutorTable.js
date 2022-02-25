@@ -114,7 +114,7 @@ export default function TutorTable(props) {
                       return(
                         <TableCell>
                           <div style={{display:'flex',flexDirection:'row',justifyContent:'flex-start',alignItems:'center'}}>
-                            <Avatar className={classes.large} src={"/self_avatar_" + value.id +".jpg"}/>
+                            <Avatar className={classes.large} src={"userIcon.png"}/>
                             <div style={{marginLeft:'20px',fontSize:'20px',fontWeight:400}}>{value.name}</div>
                           </div>
                         </TableCell>

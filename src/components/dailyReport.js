@@ -87,7 +87,7 @@ const DailyReport = props => {
           <div>
             <Typography variant="h6">Tutor</Typography>
             <div style={{display:'flex',alignItems:'center'}}>
-              <Avatar src={"/self_avatar_1.jpg"} className={classes.large}/>
+              <Avatar src={"/userIcon.png"} className={classes.large}/>
               <div style={{marginLeft:'8px',fontSize:'22px',fontWeight:400}}>Brian Bollen</div>
             </div>
           </div>

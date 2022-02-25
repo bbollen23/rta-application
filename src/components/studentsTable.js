@@ -95,8 +95,8 @@ export default function StudentsTable(props) {
                           <div style={{display:'flex',justifyContent:'center'}}>
                             <AvatarGroup>
 
-                              <Avatar src={"/self_avatar_" + value[0] +".jpg"} />
-                              <Avatar src={"/self_avatar_" + value[1] +".jpg"} />
+                              <Avatar src={"userIcon.png"} />
+                              <Avatar src={"userIcon.png"} />
                             </AvatarGroup>
                           </div>
                         </TableCell>

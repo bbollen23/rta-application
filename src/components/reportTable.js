@@ -85,7 +85,7 @@ export default function ReportTable(props) {
                       return(
                         <TableCell className="table-cell-root" key={column.name} align={column.align}>
                           <div className="table-cell">
-                            <Avatar src={"/self_avatar_" + value.id +".jpg"}/>
+                            <Avatar src={"userIcon.png"}/>
                             <div style={{marginLeft:'8px',fontSize:'18px',fontWeight:400}}>{value.name}</div>
                           </div>
                         </TableCell>
